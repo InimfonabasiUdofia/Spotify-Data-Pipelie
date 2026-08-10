@@ -1,0 +1,15 @@
+{
+	"name": "spotifydatafactorydemo",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "germanywestcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cd170034-d243-49c6-a06f-237121ae0d23",
+		"tenantId": "44fe244e-5d8d-414a-b7b0-62c16f384a21"
+	}
+}
