@@ -11,6 +11,12 @@
 						"dependencyConditions": [
 							"Succeeded"
 						]
+					},
+					{
+						"activity": "current",
+						"dependencyConditions": [
+							"Succeeded"
+						]
 					}
 				],
 				"policy": {
@@ -61,8 +67,12 @@
 						"referenceName": "Parquet1",
 						"type": "DatasetReference",
 						"parameters": {
-							"container": "spotifydatalake2",
-							"folder": "bronze"
+							"container": "bronze",
+							"folder": "user",
+							"file": {
+								"value": "@concat(pipeline().parameters.table,'_',variables('current'))",
+								"type": "Expression"
+							}
 						}
 					}
 				]
@@ -95,8 +105,8 @@
 						"referenceName": "Json1",
 						"type": "DatasetReference",
 						"parameters": {
-							"container": "spotifydatalake2",
-							"folder": "bronze",
+							"container": "bronze",
+							"folder": "cdc",
 							"file": "cdc.json"
 						}
 					},
@@ -104,14 +114,21 @@
 				}
 			},
 			{
-				"name": "Set variable1",
+				"name": "current",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "current",
+					"value": {
+						"value": "@utcNow()",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
@@ -123,6 +140,11 @@
 			},
 			"cdc_col": {
 				"type": "string"
+			}
+		},
+		"variables": {
+			"current": {
+				"type": "String"
 			}
 		},
 		"annotations": []
