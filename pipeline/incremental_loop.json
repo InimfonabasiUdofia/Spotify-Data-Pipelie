@@ -378,7 +378,7 @@
 					"method": "POST",
 					"url": "https://prod-17.germanywestcentral.logic.azure.com:443/workflows/f3b5fb9b7ac24ccdb290771fbd999c23/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=XNclyaJYkDn_AOoel-FWX_2UQ7zeL4Z3YkS0QbU1FCE",
 					"body": {
-						"value": "{\n    \"pipeline_name\": \"@{pipeline().Pipeline}\",\n    \"pipeline_runid\" \"@{pipeline().RunId}\"\n}",
+						"value": "{\n    \"pipeline_name\": \"@{pipeline().Pipeline}\",\n    \"pipeline_runid\": \"@{pipeline().RunId}\"\n}",
 						"type": "Expression"
 					}
 				}
